@@ -26,11 +26,26 @@ export class MenuService {
   }
 
   crearItemMenu(itemMenu: ItemMenu): Observable<ItemMenu> {
-    return this.http.post<ItemMenu>(this.apiUrl, itemMenu);
+    let nuevoItemMenu = {
+      descripcion: itemMenu.descripcion,
+      precio: itemMenu.precio,
+      nombre: itemMenu.nombre,
+      rutaImagen: itemMenu.rutaImagen,
+      id_categoria:itemMenu.id_categoria
+    }
+    return this.http.post<ItemMenu>(this.apiUrl, nuevoItemMenu);
   }
 
   actualizarItemMenu(id: number, itemMenu: ItemMenu): Observable<ItemMenu> {
-    return this.http.put<ItemMenu>(`${this.apiUrl}/${id}`, itemMenu);
+    let nuevoItemMenu = {
+      id_item:itemMenu.id_item,
+      descripcion: itemMenu.descripcion,
+      precio: itemMenu.precio,
+      nombre: itemMenu.nombre,
+      rutaImagen: itemMenu.rutaImagen,
+      id_categoria:itemMenu.id_categoria
+    }
+    return this.http.put<ItemMenu>(`${this.apiUrl}/${id}`, nuevoItemMenu);
   }
 
   eliminarItemMenu(id: number): Observable<void> {
