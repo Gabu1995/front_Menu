@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.left-section, .right-section {
+  width: 48%;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.p-dialog .p-grid {
+  width: 100%;
+}

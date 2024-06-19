@@ -1,0 +1,12 @@
+<div class="row body">
+  <p-tabMenu [model]="categorias" [activeItem]="activeCategory ?? undefined">
+    <ng-template let-categoria pTemplate="item">
+      <a pRipple class="flex align-items-center gap-2 p-menuitem-link" (click)="onCategoryChange(categoria)">
+        <i class="fa-solid {{ categoria.icon }}"></i>
+        <span class="fw-bold text-decoration-none">{{ categoria.nombre }}</span>
+      </a>
+    </ng-template>
+  </p-tabMenu>
+
+  <app-item-menu [categoria]="activeCategory?.id_categoria"></app-item-menu>
+</div>
