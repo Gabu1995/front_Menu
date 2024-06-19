@@ -6,7 +6,7 @@
         <img [src]="item.rutaImagen" alt="{{ item.nombre }}" class="me-3" style="max-width: 100px;">
         <div class="item-details">
           <h4>{{ item.nombre }}</h4>
-          <p>{{ item.precio | currency }}</p>
+          <p>{{ item.precio  }}</p>
           <div class="quantity-controls">
             <button class="btn-circle" (click)="decrementQuantity(item)" severity="info">−</button>
             <span class="fw-bold text-dark text-decoration-none">{{ item.orden.cantidad != null ? item.orden.cantidad :
@@ -19,7 +19,7 @@
   </ul>
   <div class="cart-summary text-center" [ngClass]="{ 'disabled': cartEmpty }">
     <p class="total">Cantidad de productos: <span>{{ cantidadTotal }}</span></p>
-    <p class="total">Total: <span>{{ total | currency }}</span></p>
+    <p class="total">Total: <span>{{ total  }}</span></p>
     <p-button [disabled]="cartEmpty" (click)="checkout()" (click)="checkout()">Realizar
       Compra</p-button>
   </div>

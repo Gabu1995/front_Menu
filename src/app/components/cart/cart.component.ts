@@ -34,7 +34,7 @@ export class CartComponent {
       if (item.nombre === itemAdd.nombre) {
         item.orden.cantidad++;
         this.cantidadTotal++;
-        this.total += itemAdd.precio;
+        this.total += Number(itemAdd.precio);
       }
     });
     this.updateCartEmpty();
@@ -46,7 +46,7 @@ export class CartComponent {
       if (item.nombre === itemAdd.nombre && item.orden.cantidad > 0) {
         item.orden.cantidad--;
         this.cantidadTotal--;
-        this.total -= itemAdd.precio;
+        this.total -= Number(itemAdd.precio);
         this.updateCartEmpty();
       }
     });

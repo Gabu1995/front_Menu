@@ -12,6 +12,15 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { LimitTo } from './pipe/limit-to';
+import { HttpClientModule } from '@angular/common/http';
+import { MenubarModule } from 'primeng/menubar';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenuModule } from 'primeng/menu';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,13 +31,18 @@ import { LimitTo } from './pipe/limit-to';
   ],
   imports: [
     BrowserModule,
+    SidebarModule,
+    MenuModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ButtonModule,
     FormsModule,
     CardModule,
     RatingModule,
-    TabMenuModule
+    TabMenuModule,
+    MenubarModule,
+    HttpClientModule,
+    PanelMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

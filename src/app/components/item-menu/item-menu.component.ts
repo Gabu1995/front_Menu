@@ -14,7 +14,7 @@ export class ItemMenuComponent {
   @Output() itemsCartEmit = new EventEmitter<ItemMenu[]>();
 
   //Recibo el mensaje - categoria
-  @Input() categoria?: string = '';
+  @Input() categoria?: number = 0;
 
   items: ItemMenu[] = [];
 
@@ -29,9 +29,14 @@ export class ItemMenuComponent {
     }
   }
 
-  loadItemsByCategoria(categoria: string) {
-    this.items = this.menuService.getItemsByCategoria(categoria);
-    this.itemsCartEmit.emit(this.items);
+  loadItemsByCategoria(categoria: number) {
+    this.menuService.getItemsByCategoria(categoria).subscribe(res => {
+      this.items = res;
+      this.items.forEach(i => {
+        i.orden = {cantidad:0}
+      });
+      this.itemsCartEmit.emit(this.items);
+    });
 
   }
 }

@@ -1,4 +1,4 @@
-<div class="row body">
+<!--<div class="row body">
   <p-tabMenu [model]="categorias" [activeItem]="activeCategory ?? undefined">
     <ng-template let-categoria pTemplate="item">
       <a pRipple class="flex align-items-center gap-2 p-menuitem-link" (click)="onCategoryChange(categoria)">
@@ -8,5 +8,29 @@
     </ng-template>
   </p-tabMenu>
 
-  <app-item-menu [categoria]="activeCategory?.nombre"></app-item-menu>
+  <app-item-menu [categoria]="activeCategory?.id_categoria"></app-item-menu>
+</div>-->
+<div class="layout-wrapper">
+  <button type="button" pButton icon="pi pi-bars" (click)="toggleSidebar()" class="menu-button"></button>
+
+  <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000" [modal]="true">
+    <h1 style="font-weight:normal">Menú</h1>
+    <p-panelMenu [model]="items"></p-panelMenu>
+  </p-sidebar>
+
+  <div class="content">
+    <!-- Aquí va el contenido principal de tu aplicación -->
+    <div class="row body">
+      <p-tabMenu [model]="categorias" [activeItem]="activeCategory ?? undefined">
+        <ng-template let-categoria pTemplate="item">
+          <a pRipple class="flex align-items-center gap-2 p-menuitem-link" (click)="onCategoryChange(categoria)">
+            <i class="fa-solid {{ categoria.icon }}"></i>
+            <span class="fw-bold text-decoration-none">{{ categoria.nombre }}</span>
+          </a>
+        </ng-template>
+      </p-tabMenu>
+
+      <app-item-menu [categoria]="activeCategory?.id_categoria"></app-item-menu>
+    </div>
+  </div>
 </div>
